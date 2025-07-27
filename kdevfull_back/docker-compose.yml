@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: always
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - db_volume:/var/lib/postgresql/data
+      - ./script.sql:/docker-entrypoint-initdb.d/script.sql
+
+  app:
+    build: .
+    depends_on:
+      - db
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/postgres
+      DB_USER: postgres
+      DB_PASS: postgres
+      TOKEN_SECRET: KdevFullSuperSecKdevFullSuperSecretKey_2025!@#%$&*()_+|~retKey_2025!@#%$&*()_+|~
+      TOKEN_EXP_TIME: 3600000
+    restart: always
+
+volumes:
+  db_volume:
