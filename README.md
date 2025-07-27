@@ -5,7 +5,7 @@ Sistema completo de gestión de proyectos y tareas desarrollado con **Spring Boo
 ## 🏗️ Arquitectura del Proyecto
 
 ```
-kdevfull/
+prueba_kdevfull/
 ├── kdevfull_back/          # Backend API (Spring Boot 3)
 │   ├── src/
 │   ├── docker-compose.yml
@@ -30,7 +30,7 @@ kdevfull/
 
 ```bash
 git clone https://github.com/AdamGard/prueba_kdevfull.git
-cd kdevfull
+cd prueba_kdevfull
 ```
 
 ### 2. Levantar el Backend
